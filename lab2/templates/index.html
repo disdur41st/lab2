@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div class="container">
+            <h1 style="text-align:center;">Лабораторная работа №2</h1>
+
+            <h2 style="text-align:center;">Ежедневник</h2>
+            <big>Деятельности</big>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Наименование</th>
+                  <th>Время</th>
+                  <th>Дата</th>                
+                </tr>
+                </thead>
+                <tbody>
+                    {% for activity in activity_list %}
+                        <tr>
+                            <th scope="row">{{activity.id}}</th>
+                            <td>{{activity.name}}</td>
+                            <td>{{activity.time}}</td>
+                            <td>{{activity.date}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <big>Участники</big>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Отчество</th>
+                        <th>Пол</th>
+                        <th>Номер телефона</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for participant in participants_list %}
+                    <tr>
+                        <th scope="row">{{participant.id}}</th>
+                        <td>{{participant.first_name}}</td>
+                        <td>{{participant.second_name}}</td>
+                        <td>{{participant.third_name}}</td>
+                        <td>{{participant.sex}}</td>
+                        <td>{{participant.phone}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <big>Места</big>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Наименование</th>
+                        <th>Город</th>
+                        <th>Улица</th>
+                        <th>Дом</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for place in places_list %}
+                    <tr>
+                        <th scope="row">{{place.id}}</th>
+                        <td>{{place.name}}</td>
+                        <td>{{place.city}}</td>
+                        <td>{{place.street}}</td>
+                        <td>{{place.house}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+	</body>
+</html>
